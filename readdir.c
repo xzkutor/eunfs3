@@ -321,7 +321,7 @@ READDIRPLUS3res read_dir_plus(const char *path, cookie3 cookie, cookieverf3 verf
 	    entry[i].name = &obj[i * NFS_MAXPATHLEN];
 	    entry[i].cookie = (cookie + 1 + i) | rcookie;
 	    entry[i].nextentry = NULL;
-		entry[i].name_attributes = get_post_stat(path, req);
+	    entry[i].name_attributes = get_post_buf(buf,req);
 
 	    /* account for entry size */
 	    real_count += ENTRY_SIZE + NAME_SIZE(this->d_name);
